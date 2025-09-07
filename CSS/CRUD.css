@@ -1,0 +1,169 @@
+/* ========================
+   Fonts & Base Styling
+======================== */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap");
+
+body {
+  font-family: "Cairo", sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================
+   Headings
+======================== */
+h1,
+h2,
+.name {
+  background: linear-gradient(to right, #7b2ff7, #f107a3);
+  color: white;
+}
+
+h1 {
+  padding: 2rem;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+h2 {
+  padding: 1.5rem 0;
+  text-align: center;
+  font-weight: 800;
+}
+
+/* ========================
+   Task Card
+======================== */
+.task {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.task:hover {
+  transform: translateY(-5px);
+}
+
+/* Mark as Done Visual */
+.task-done {
+  position: relative;
+}
+
+.task-done::before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 300px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: rgba(76, 175, 80, 0.5);
+  z-index: 100;
+}
+
+/* ========================
+   Task Content
+======================== */
+.name {
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.task-details {
+  width: 90%;
+  margin: auto;
+  color: #333;
+}
+
+.description,
+.category,
+.date {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.date {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Prefixes (e.g. Description \) */
+.description::before,
+.category::before,
+.date::before {
+  content: attr(class) " \\ ";
+  color: #7b2ff7;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* ========================
+   Buttons
+======================== */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 90%;
+  margin: 10px auto;
+}
+
+.buttons button {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttons .done {
+  width: 100%;
+  background-color: #4caf50;
+}
+
+.buttons .update {
+  width: 49.5%;
+  background-color: #ffc107;
+  color: #000;
+}
+
+.buttons .delete {
+  width: 49.5%;
+  background-color: #f44336;
+  z-index: 1000;
+}
+
+.buttons button:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
+/* ========================
+   Responsive Design
+======================== */
+@media (max-width: 768px) {
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons .update,
+  .buttons .delete {
+    width: 100%;
+  }
+}
